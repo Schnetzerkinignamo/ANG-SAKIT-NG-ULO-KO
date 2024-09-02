@@ -1,0 +1,13 @@
+Determine what the population will be in Davao City in five years. The
+city’s population as of 2023 is estimated at 1,949,400. Write an application
+to compute and determine the estimated population in the city given a
+constant rate of increase of 2.18%. Display the results in a table with the
+estimated populations for the next five years.
+Sample Output:  year                   Estimated population
+2024                     1991896
+2025                     2035328
+2026                     2079698
+2027                     2125027
+2028                     2171353 using java and methods
+
+
