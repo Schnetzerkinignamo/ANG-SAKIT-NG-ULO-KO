@@ -11,3 +11,184 @@ Sample Output:  year                   Estimated population
 2028                     2171353 using java and methods
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    private static final int MAX_INPUTS = 3;
+    private static String[] inputs = new String[MAX_INPUTS];
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        getUserInputs();
+        displayInputs();
+        scanner.close();
+    }
+
+    private static void getUserInputs() {
+        for (int i = 0; i < MAX_INPUTS; i++) {
+            System.out.print("Please enter input " + (i + 1) + ": ");
+            inputs[i] = scanner.nextLine();
+            System.out.println("Incorrect PIN");
+        }
+        System.out.println("Sorry your account will be temporarily suspended. Visit your nearest branch for reactivation");
+    }
+
+    private static void displayInputs() {
+        System.out.println("Your inputs were:");
+        for (String input : inputs) {
+            System.out.println(input);
+          
+        }
+    }
+}
+
+
+import java.util.Scanner;
+
+public class PinValidation {
+    public static void main(String[] args) {
+        final int CORRECT_PIN = 1234;
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        int attempts = 0;
+        boolean accessGranted = false;
+        
+        while (attempts < 3) {
+            System.out.print("Enter your PIN: ");
+            int enteredPin = scanner.nextInt();
+            attempts++;
+            
+            
+            if (enteredPin == CORRECT_PIN) {
+                accessGranted = true;
+                break; 
+            } else {
+                if (attempts < 3) {
+                    System.out.println("Invalid PIN. Try again.");
+                }
+            }
+        }
+        
+
+        if (accessGranted) {
+            System.out.println("Access granted.");
+        } else {
+            System.out.println("Sorry, your account will be temporarily suspended. Visit your nearest branch for reactivation.");
+        }
+    }
+}
+
+
+
+import java.util.Scanner;
+
+class UserInput {
+    private static final int MAX_ATTEMPTS = 3;
+    private static final String CORRECT_PIN = "1234";
+    private Scanner scanner;
+
+    public UserInput() {
+        scanner = new Scanner(System.in);
+    }
+
+    public void getUserPin() {
+        int attempts = 0;
+        boolean isPinCorrect = false;
+
+        while (attempts < MAX_ATTEMPTS && !isPinCorrect) {
+            System.out.print("Please enter your PIN: ");
+            String inputPin = scanner.nextLine();
+
+            if (inputPin.equals(CORRECT_PIN)) {
+                System.out.println("Access granted.");
+                isPinCorrect = true;
+            } else {
+                attempts++;
+               
+                if (attempts < MAX_ATTEMPTS) {
+                    System.out.println("Incorrect PIN: ");
+                }
+            }
+        }
+
+        if (!isPinCorrect) {
+            System.out.println("Sorry, your account will be temporarily suspended. Visit your nearest branch for reactivation.");
+        }
+    }
+
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        UserInput userInput = new UserInput();
+        userInput.getUserPin();
+        userInput.close();
+    }
+}
+
+
+
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        final int CORRECT_PIN = 1234;
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        int attempts = 0;
+        boolean accessGranted = false;
+        
+        while (attempts < 3) {
+            System.out.print("Enter your PIN: ");
+            int enteredPin = scanner.nextInt();
+            attempts++;
+            
+            if (enteredPin == CORRECT_PIN) {
+                accessGranted = true;
+                break; 
+            } else {
+                if (attempts < 3) {
+                    System.out.println("Invalid PIN: ");
+                }
+            }
+        }
+        
+
+        if (accessGranted) {
+            System.out.println("Access granted.");
+        } else {
+            System.out.println("Sorry, your account will be temporarily suspended. Visit your nearest branch for reactivation.");
+        }
+    }
+}
+
+
+
