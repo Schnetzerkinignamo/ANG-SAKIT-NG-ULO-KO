@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+class UserInput {
+    private static final int MAX_ATTEMPTS = 3;
+    private static final String CORRECT_PIN = "1234";
+    private Scanner scanner;
+
+    public UserInput() {
+        scanner = new Scanner(System.in);
+    }
+
+    public void getUserPin() {
+        int attempts = 0;
+        boolean isPinCorrect = false;
+
+        while (attempts < MAX_ATTEMPTS && !isPinCorrect) {
+            System.out.print("Please enter your PIN: ");
+            String inputPin = scanner.nextLine();
+
+            if (inputPin.equals(CORRECT_PIN)) {
+                System.out.println("Access granted.");
+                isPinCorrect = true;
+            } else {
+                attempts++;
+               
+                if (attempts < MAX_ATTEMPTS) {
+                    System.out.println("Incorrect PIN: ");
+                }
+            }
+        }
+
+        if (!isPinCorrect) {
+            System.out.println("Sorry, your account will be temporarily suspended. Visit your nearest branch for reactivation.");
+        }
+    }
+
+    }
+
+public class Main {
+    public static void main(String[] args) {
+        UserInput userInput = new UserInput();
+        userInput.getUserPin();
+    }
+}
